@@ -91,7 +91,7 @@ public:
             }
         }else{
             for(int i = x_temp; i <= x_temp_end; i++){
-                if(map_board[i][x_temp] == '#' ){
+                if(map_board[y_temp][i] == '#' ){
                     returnie.second = false;
                 }
                 if(map_board[y_temp][i] == '>'){
@@ -241,7 +241,7 @@ public:
                 if(!(map_board[ny][nx] == 'e' || map_board[ny][nx] == 's' || map_board[ny][nx] == '.')){
                     // check if >> or  << uphill or downhill
                     // run separate code
-                    /*
+
                     if(map_board[ny][nx] == '>'){
                         float dist_calc = sqrt(pow(dx[i],2)+pow(dy[i],2))+distance;
                         if (least_dist.find(to) == least_dist.end()){
@@ -270,7 +270,7 @@ public:
                             }
                         }
                     }
-                    */
+
                     // just skipie always
                     continue;
                 }
@@ -286,7 +286,7 @@ public:
                 // should change and fix so they can find if it exists
                 if(!check_straights(to,from)){
                     // there are blocks and you should see if its >> or <<
-                    /*
+
                     pair<pair<int,int>,bool> holding = count_hilly(to,from);
                     if(holding.second){
                         float dist_calc = sqrt(pow(dx[i],2)+pow(dy[i],2))+distance;
@@ -306,7 +306,7 @@ public:
                             }
                         }
                     }
-                    */
+
                     continue;
                 }
 
