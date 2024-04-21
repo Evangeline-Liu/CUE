@@ -50,7 +50,7 @@ public:
     }
 
 
-    bool check_straights(coords to, coords from){
+    bool check_straights(coords &to, coords &from){
         int x_to = to.first;
         int y_to = to.second;
 
@@ -83,11 +83,23 @@ public:
                 if(!(map_board[i][x_temp] == '.' || map_board[i][x_temp] == 'e'|| map_board[i][x_temp] == 's'|| map_board[i][x_temp] == '>'|| map_board[i][x_temp] == '<')){
                     return false;
                 }
+                if(map_board[i][x_temp] == '>'){
+                    x_temp_end++;
+                }
+                if(map_board[i][x_temp] == '<'){
+                    x_temp_end--;
+                }
             }
         }else{
             for(int i = x_temp; i <= x_temp_end; i++){
                 if(!(map_board[y_temp][i] == '.' || map_board[y_temp][i] == 'e'|| map_board[y_temp][i] == 's'|| map_board[y_temp][i] == '>'|| map_board[y_temp][i] == '<')){
                     return false;
+                }
+                if(map_board[y_temp][i] == '>'){
+                    y_temp_end++;
+                }
+                if(map_board[y_temp][i] == '<'){
+                    y_temp_end--;
                 }
             }
         }
@@ -200,6 +212,11 @@ public:
                 if(!check_straights(to,from)){
                     continue;
                 }
+                // have to check again since it moved
+                if(!(map_board[ny][nx] == 'e' || map_board[ny][nx] == 's' || map_board[ny][nx] == '.' || map_board[ny][nx] == '>' || map_board[ny][nx] == '<')){
+                    continue;
+                }
+
 
                 // if it ends on a > or <
                 coords compare = to;
@@ -237,9 +254,12 @@ public:
 
                 }else{
                     if (least_dist[to].second > dist_calc || least_dist[compare].second > dist_calc ) {
+
                         least_dist[to] = make_pair(from, dist_calc);
                         if(map_board[ny][nx] == '>' || map_board[ny][nx] == '<') {
+                            counter++;
                                 if(least_dist[compare].second > dist_calc) {
+                                    counter--;
                                     least_dist[compare] = make_pair(to, dist_calc);
                                     if (map_board[compare.second][compare.first] != 'e') {
                                         temp.push(make_pair(compare, dist_calc));
@@ -314,7 +334,7 @@ int main() {
     };
 
     std::vector<std::string> Map4 = {
-            "s>>>.>>>>e"
+            "s>>>>>>>e"
     };
 
     graph temp = graph(Map4);
@@ -330,125 +350,3 @@ int main() {
     return 0;
 }
 
-/*
- // check if >> or  << uphill or downhill
-                    // run separate code
-                    // in direction of right
-                    if(map_board[ny][nx] == '>'){
-                        float dist_calc = sqrt(pow(dx[i],2)+pow(dy[i],2))+distance;
-                        if (least_dist.find(to) == least_dist.end()){
-                            least_dist[to] = make_pair(from, dist_calc);
-                            to.first = to.first+1;
-                            temp.push(make_pair(to, dist_calc));
-                        }else {
-                            if (least_dist[to].second > dist_calc) {
-                                least_dist[to] = make_pair(from, dist_calc);
-                                to.first = to.first+1;
-                                temp.push(make_pair(to, dist_calc));
-                            }
-                        }
-                    }
-                    // in direction of left
-                    if(map_board[ny][nx] == '<'){
-                        float dist_calc = sqrt(pow(dx[i],2)+pow(dy[i],2))+distance;
-                        if (least_dist.find(to) == least_dist.end()){
-                            least_dist[to] = make_pair(from, dist_calc);
-                            to.first = to.first-1;
-                            temp.push(make_pair(to, dist_calc));
-                        }else {
-                            if (least_dist[to].second > dist_calc) {
-                                least_dist[to] = make_pair(from, dist_calc);
-                                to.first = to.first-1;
-                                temp.push(make_pair(to, dist_calc));
-                            }
-                        }
-                    }
-                    // doesn't work on mulit after it so gotta fix taht
-                    // just skipie always
- */
-
-/*
- // there are blocks and you should see if its >> or <<
-
-                    pair<pair<int,int>,bool> holding = count_hilly(to,from);
-                    if(holding.second){
-                        float dist_calc = sqrt(pow(dx[i],2)+pow(dy[i],2))+distance;
-
-                        // what if least_dist doesn't exist?
-                        if (least_dist.find(to) == least_dist.end()){
-                            least_dist[to] = make_pair(from, dist_calc);
-                            to.first += holding.first.first;
-                            to.second += holding.first.second;
-                            temp.push(make_pair(to, dist_calc));
-                        }else {
-                            if (least_dist[to].second > dist_calc) {
-                                least_dist[to] = make_pair(from, dist_calc);
-                                to.first += holding.first.first;
-                                to.second += holding.first.second;
-                                temp.push(make_pair(to, dist_calc));
-                            }
-                        }
-                    }
-                    // must fix do later
- */
-/*
-     pair<pair<int,int>,bool> count_hilly(coords to, coords from){
-
-        pair<pair<int,int>,bool> returnie = make_pair(make_pair(0,0),true);
-        int x_to = to.first;
-        int y_to = to.second;
-
-        int x_from = from.first;
-        int y_from = from.second;
-
-        int x_temp = 0;
-        int x_temp_end = 0;
-
-        if( x_to > x_from){
-            x_temp = x_from;
-            x_temp_end = x_to;
-        }else{
-            x_temp = x_to;
-            x_temp_end = x_from;
-        }
-
-        int y_temp = 0;
-        int y_temp_end = 0;
-        if( y_to > y_from){
-            y_temp = y_from;
-            y_temp_end = y_to;
-        }else{
-            y_temp = y_to;
-            y_temp_end = y_from;
-        }
-
-        if(x_temp_end == x_temp){
-            for(int i = y_temp; i <= y_temp_end; i++){
-                if(map_board[i][x_temp] == '#' ){
-                    returnie.second = false;
-                }
-
-                if(map_board[i][x_temp] == '>' ){
-                    returnie.first.first += 1;
-                }
-                if(map_board[i][x_temp] == '<' ){
-                    returnie.first.first -= 1;
-                }
-            }
-        }else{
-            for(int i = x_temp; i <= x_temp_end; i++){
-                if(map_board[y_temp][i] == '#' ){
-                    returnie.second = false;
-                }
-                if(map_board[y_temp][i] == '>'){
-                    returnie.first.first += 1;
-                }
-                if(map_board[y_temp][i] == '<'){
-                    returnie.first.first -= 1;
-                }
-            }
-        }
-
-        return returnie;
-    }
- */
