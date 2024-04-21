@@ -12,7 +12,7 @@ int main() {
     int x  = BFS(GetMaps(3), start, end);
     std::cout<< x << std::endl;
 */
-    std::cout<<"Welcome to CUE, the golf map shortest path algorithm"<<std::endl;
+    std::cout<<"Welcome to CUE, here we help calculate your best shot for a game of golf."<<std::endl;
     std::cout<<"By Evangeline Liu and Cooper Engebretson" <<std::endl;
     std::cout<<std::endl;
     std::cout<<"Select map!(Enter a number)"<<std::endl;
