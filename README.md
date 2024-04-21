@@ -1,7 +1,7 @@
 <H1> COP3530 - Project 3 </h1>
 Information for Running Code
 
-<h2> Buttons and Uses </h2>
+<h3> Buttons and Uses </h3>
 When starting up the program you are given a prompt to select a map.
 Please input a numer of a existing map shown.
 
