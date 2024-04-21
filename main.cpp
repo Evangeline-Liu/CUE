@@ -63,6 +63,7 @@ int main() {
       temp.Mapping_Out();
       // distance travelled in outputed in the dijkstra.cpp
       list<coords> answer = temp.Shortest_Path();
+      temp.Print_Map();
       cout<<"Completed in " << answer.size()-1-temp.counter << " Moves"<<std::endl;
 
       // this is for the specific shots given and after rolling down or up hill
