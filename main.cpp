@@ -56,6 +56,7 @@ int main() {
     if (Algorithm == 2){
       graph temp = graph(MapSelection);
       temp.Mapping_Out();
+      // distance travelled in outputed in the dijkstra.cpp
       list<coords> answer = temp.Shortest_Path();
       cout<<"Completed in " << answer.size()-1-temp.counter << " Moves"<<std::endl;
 
