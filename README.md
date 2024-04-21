@@ -10,3 +10,8 @@ Input 1 for BFS solution
 Input 2 for Dijkstra solution
 
 <h3> What is Returned </h3>
+A Map of the Shots Taken and where the ball ends up
+Number of Shots Taken
+Distance Travelled
+Time to Execute Algorithm
+
