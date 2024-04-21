@@ -259,6 +259,7 @@ public:
                     }
 
                 }else{
+                    // at least one of them has to be greater than the prexisting
                     if (least_dist[to].second > dist_calc || least_dist[compare].second > dist_calc ) {
 
                         least_dist[to] = make_pair(from, dist_calc);
@@ -273,6 +274,7 @@ public:
                                 }
 
                         }else{
+                            // if end no need to run it in the algorithm
                             if(map_board[ny][nx] != 'e'){
                                 temp.push(make_pair(to, dist_calc));
                             }
@@ -291,6 +293,7 @@ public:
         list<coords> returne;
         returne.push_back(end);
         float temper = least_dist[end].second;
+        // print here since need to get from the end part, can move if need be
         cout << "Distance Traveled: "<<temper << endl;
 
         coords temp_coord = least_dist[end].first;
@@ -316,6 +319,7 @@ public:
         return returne;
     }
 
+    // print out map with shots on it
     void Print_Map(){
         list<coords> answer = this->Shortest_Path();
         for (auto it = answer.begin(); it != answer.end(); ++it) {
