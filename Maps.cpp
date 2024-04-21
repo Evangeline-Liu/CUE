@@ -22,6 +22,9 @@ std::vector<std::string> GetMaps(int Num) {
             ".#..#....#",
             "...#..#..."
     };
+    std::vector<std::string> Map4 = {
+            "s>>>>>>e"
+    };
 
     if (Num == 1) {
         return Map1;
