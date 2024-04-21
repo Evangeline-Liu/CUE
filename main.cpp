@@ -53,6 +53,18 @@ int main() {
         std::cout<<"Completed in " <<x << " Moves"<<std::endl;
     }
     if (Algorithm == 2){
-        //incorporate dijkstra call function
+      graph temp = graph(MapSelection);
+      temp.Mapping_Out();
+      list<coords> answer = temp.Shortest_Path();
+      cout<<"Completed in " << answer.size()-1-temp.counter << " Moves"<<std::endl;
+      
+      /*
+      cout << "Specific Shots Taken:" << endl;
+      for (auto it = answer.begin(); it != answer.end(); ++it) {
+          cout << it->first << ", " << it->second << endl;
+      }
+      */
+
+    return 0;
     }
 }
