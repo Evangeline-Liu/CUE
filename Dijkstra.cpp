@@ -5,6 +5,7 @@
 #include <utility>
 #include <math.h>
 #include <list>
+
 using namespace std;
 
 // things to remember
@@ -31,7 +32,7 @@ public:
 
     // for the end
     int counter = 0;
-    
+
     // declaration
     graph(std::vector<std::string> map_board){
         this->map_board = map_board;
@@ -216,7 +217,7 @@ public:
                 if(!check_straights(to,from)){
                     continue;
                 }
-                
+
                 // have to check again since it moved
                 if(!(map_board[ny][nx] == 'e' || map_board[ny][nx] == 's' || map_board[ny][nx] == '.' || map_board[ny][nx] == '>' || map_board[ny][nx] == '<')){
                     continue;
@@ -315,13 +316,36 @@ public:
         return returne;
     }
 
+    void Print_Map(){
+        list<coords> answer = this->Shortest_Path();
+        for (auto it = answer.begin(); it != answer.end(); ++it) {
+            if(map_board[it->second][it->first] != '>' && map_board[it->second][it->first] != '<'){
+                map_board[it->second][it->first] = 'o';
+            }
+        }
+
+        for(int j = 0; j < map_board.size(); j++) {
+            for (int i = 0; i < map_board[0].size(); i++) {
+                if(map_board[j][i] == '>'){
+                    cout << "\>" << " ";
+                }else if(map_board[j][i] == '<'){
+                    cout << "\<" << " ";
+                }else{
+                    cout << map_board[j][i] << " ";
+                }
+
+            }
+            cout << endl;
+        }
+    }
+
 
 };
 
 
 /*
 int main() {
-    // test maps 
+    // test maps
     std::vector<std::string> Map1 = {
             "s.#.e",
             "..#..",
@@ -347,10 +371,10 @@ int main() {
     std::vector<std::string> Map4 = {
             "s>>>>>>e"
     };
-    
-    
+
+
     // everything to run it
-    graph temp = graph(Map1);
+    graph temp = graph(Map4);
     temp.Mapping_Out();
 
     list<coords> answer = temp.Shortest_Path();
@@ -359,7 +383,8 @@ int main() {
     for (auto it = answer.begin(); it != answer.end(); ++it) {
         cout << it->first << ", " << it->second << endl;
     }
-
+    temp.Print_Map();
+    */
     return 0;
 }
-*/
+
