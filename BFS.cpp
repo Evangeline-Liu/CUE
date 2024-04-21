@@ -48,6 +48,65 @@ bool isValid(int x, int y, int rows, int cols, std::vector<std::string> map, int
             }
         }
         //2x1 moves
+        else if (dx == 2 && dy == 1){
+            if (map[x-1][y] == '#' || map[x][y-1] == '#' || map[x-1][y-1] == '#' ){
+                return false;
+            }
+        }
+        else if (dx == 2 && dy == -1) { // Moving down-left
+            if (map[x - 1][y] == '#' || map[x][y + 1] == '#' || map[x - 1][y + 1] == '#') {
+                return false; // Obstacle in down-left direction
+            }
+        } else if (dx == -2 && dy == 1) { // Moving up-right
+            if (map[x + 1][y] == '#' || map[x][y - 1] == '#' || map[x + 1][y - 1] == '#') {
+                return false; // Obstacle in up-right direction
+            }
+        } else if (dx == -2 && dy == -1) { // Moving up-left
+            if (map[x + 1][y] == '#' || map[x][y + 1] == '#' || map[x + 1][y + 1] == '#') {
+                return false; // Obstacle in up-left direction
+            }
+        }
+        //1x2moves
+        else if (dx == 1 && dy == 2){
+            if (map[x][y-1] == '#' || map[x-1][y] == '#' || map[x-1][y-1] == '#'){
+                return false;
+            }
+        }
+        else if (dx == 1 && dy == -2) { // Moving down-left
+            if (map[x][y - 1] == '#' || map[x - 1][y] == '#' || map[x - 1][y + 1] == '#') {
+                return false; // Obstacle in down-left direction
+            }
+        }
+        else if (dx == -1 && dy == 2) { // Moving up-right
+            if (map[x][y + 1] == '#' || map[x + 1][y] == '#' || map[x + 1][y - 1] == '#') {
+                return false; // Obstacle in up-right direction
+            }
+        }
+        else if (dx == -1 && dy == -2) { // Moving up-left
+            if (map[x][y + 1] == '#' || map[x + 1][y] == '#' || map[x + 1][y + 1] == '#') {
+                return false; // Obstacle in up-left direction
+            }
+        }
+        else if (dx == 2 && dy == 2){
+            if (map[x][y-1] == '#' || map[x-1][y] == '#' ||map[x-1][y-1] == '#' || map[x-2][y-1]=='#' || map[x-1][y-2]=='#'){
+                return false;
+            }
+        }
+        else if (dx == 2 && dy == -2) { // Moving down-left
+            if (map[x][y - 1] == '#' || map[x - 1][y] == '#' || map[x - 1][y + 1] == '#' || map[x - 2][y + 1] == '#' || map[x - 1][y + 2] == '#') {
+                return false; // Obstacle in down-left direction
+            }
+        }
+        else if (dx == -2 && dy == 2) { // Moving up-right
+            if (map[x][y + 1] == '#' || map[x + 1][y] == '#' || map[x + 1][y - 1] == '#' || map[x + 2][y - 1] == '#' || map[x + 1][y - 2] == '#') {
+                return false; // Obstacle in up-right direction
+            }
+        }
+        else if (dx == -2 && dy == -2) { // Moving up-left
+            if (map[x][y + 1] == '#' || map[x + 1][y] == '#' || map[x + 1][y + 1] == '#' || map[x + 2][y + 1] == '#' || map[x + 1][y + 2] == '#') {
+                return false; // Obstacle in up-left direction
+            }
+        }
     }
     return true;
 }
