@@ -6,6 +6,7 @@
 #include <queue>
 #include <utility>
 #include "Maps.h"
+#include "BFS.cpp"
 #include "iostream"
 // Declare the BFS function
 int BFS(std::vector<std::string> grid, std::pair<int, int> start, std::pair<int, int> finish);
