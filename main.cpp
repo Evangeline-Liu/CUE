@@ -43,6 +43,39 @@ int main() {
         }
         std::cout << std::endl;
     }
+  
+    std::cout<<std::endl;
+    std::cout<<"Map 4:"<<std::endl;
+    for (const auto& row : GetMaps(4)) {
+        for (char c : row) {
+            std::cout << c << " ";
+        }
+        std::cout << std::endl;
+    }
+    std::cout<<std::endl;
+    std::cout<<"Map 5:"<<std::endl;
+    for (const auto& row : GetMaps(5)) {
+        for (char c : row) {
+            std::cout << c << " ";
+        }
+        std::cout << std::endl;
+    }
+    std::cout<<std::endl;
+    std::cout<<"Map 6:"<<std::endl;
+    for (const auto& row : GetMaps(6)) {
+        for (char c : row) {
+            std::cout << c << " ";
+        }
+        std::cout << std::endl;
+    }
+    std::cout<<std::endl;
+    std::cout<<"Map 7:"<<std::endl;
+    for (const auto& row : GetMaps(7)) {
+        for (char c : row) {
+            std::cout << c << " ";
+        }
+        std::cout << std::endl;
+    }
     int MapSelection;
     std::cin >> MapSelection;
     std::cout<<std::endl;
