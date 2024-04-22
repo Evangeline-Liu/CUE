@@ -51,10 +51,53 @@ int main() {
     std::cin>>Algorithm;
     float start = t*1000;
     if (Algorithm == 1){
-        std::pair<int, int> start(0, 0);
-        std::pair<int, int> end(4, 9);
-        int x  = BFS(GetMaps(MapSelection), start, end);
-        std::cout<<"Completed in " <<x << " Moves"<<std::endl;
+        if (MapSelection == 1){
+            std::pair<int, int> start(0, 0);
+            std::pair<int, int> end(4, 4);
+            int x  = BFS(GetMaps(MapSelection), start, end);
+            std::cout<<"Completed in " <<x << " Moves"<<std::endl;
+        }
+        if (MapSelection == 2){
+            std::pair<int, int> start(0, 0);
+            std::pair<int, int> end(4, 4);
+            int x  = BFS(GetMaps(MapSelection), start, end);
+            std::cout<<"Completed in " <<x << " Moves"<<std::endl;
+        }
+        if (MapSelection == 3){
+            std::pair<int, int> start(0, 0);
+            std::pair<int, int> end(4, 9);
+            int x  = BFS(GetMaps(MapSelection), start, end);
+            std::cout<<"Completed in " <<x << " Moves"<<std::endl;
+        }
+        if (MapSelection == 4){
+            std::pair<int, int> start(0, 0);
+            std::pair<int, int> end(4, 9);
+            int x  = BFS(GetMaps(MapSelection), start, end);
+            std::cout<<"Completed in " <<x << " Moves"<<std::endl;
+        }
+        if (MapSelection == 5){
+            std::pair<int, int> start(0, 0);
+            std::pair<int, int> end(0, 5);
+            int x  = BFS(GetMaps(MapSelection), start, end);
+            std::cout<<"Completed in " <<x << " Moves"<<std::endl;
+        }
+        if (MapSelection == 6){
+            std::pair<int, int> start(0, 0);
+            std::pair<int, int> end(4, 9);
+            int x  = BFS(GetMaps(MapSelection), start, end);
+            std::cout<<"Completed in " <<x << " Moves"<<std::endl;
+        }
+        if (MapSelection == 7){
+            std::pair<int, int> start(0, 0);
+            std::pair<int, int> end(4, 9);
+            int x  = BFS(GetMaps(MapSelection), start, end);
+            if (x == -1){
+                std::cout<<"There is no path"<<std::endl;
+            }
+            else {
+                std::cout << "Completed in " << x << " Moves" << std::endl;
+            }
+        }
         float end = t*1000;
         float end_time = end-start;
     }
