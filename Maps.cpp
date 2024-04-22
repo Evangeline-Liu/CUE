@@ -4,7 +4,7 @@ std::vector<std::string> GetMaps(int Num) {
     std::vector<std::string> Map1 = {
             "..#..",
             "..#..",
-            "...<.",
+            ".....",
             "..#..",
             "..#.."
     };
@@ -29,6 +29,9 @@ std::vector<std::string> GetMaps(int Num) {
             "...#..>..#",
             "......>..."
     };
+    std::vector<std::string> Map5 = {
+            ".>>>>."
+    };
 
     if (Num == 1) {
         return Map1;
@@ -41,6 +44,9 @@ std::vector<std::string> GetMaps(int Num) {
     }
     else if (Num ==4 ){
         return Map4;
+    }
+    else if (Num ==5 ){
+        return Map5;
     }
     else {
         return {};
