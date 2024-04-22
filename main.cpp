@@ -67,13 +67,17 @@ int main() {
       cout<<"Completed in " << answer.size()-1-temp.counter << " Moves"<<std::endl;
       float temper = temp.least_dist[temp.end].second;
       cout<<"Distance Travelled: " << temper << " Moves"<<std::endl;
-      // this is for the specific shots given and after rolling down or up hill
-      /*
-      cout << "Specific Shots Taken:" << endl;
+      // this is for the specific shots given and after rolling down or up hill included
       for (auto it = answer.begin(); it != answer.end(); ++it) {
-          cout << it->first << ", " << it->second << endl;
+        cout << it->first << ", " << it->second << " ";
+        if(temp.map_board[it->second][it->first] == '>' || temp.map_board[it->second][it->first] == '<'){
+            ++it;
+            cout << "rolls to " << it->first << ", " << it->second << endl;
+        }else{
+            cout << endl;
+        }
+
       }
-      */
       float end = t*1000;
       float end_time = end-start;
     }
