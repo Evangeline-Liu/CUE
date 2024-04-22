@@ -2,7 +2,7 @@
 Information for Running Code
 
 <h3> What to Input </h3>
-When starting up the program you are given a prompt to select a map.
+When starting up the program you are given a prompt to select a map. <br>
 Please input a number of a existing map shown.
 
 After that you a prompted to select an algorithm
