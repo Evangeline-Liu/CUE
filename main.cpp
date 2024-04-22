@@ -65,7 +65,8 @@ int main() {
       list<coords> answer = temp.Shortest_Path();
       temp.Print_Map();
       cout<<"Completed in " << answer.size()-1-temp.counter << " Moves"<<std::endl;
-
+      float temper = temp.least_dist[temp.end].second;
+      cout<<"Distance Travelled: " << temper << " Moves"<<std::endl;
       // this is for the specific shots given and after rolling down or up hill
       /*
       cout << "Specific Shots Taken:" << endl;
