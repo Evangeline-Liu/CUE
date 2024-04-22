@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "Maps.cpp"
-#include "BFS.cpp"
+#include "BFS.h"
 #include "Dijkstra.cpp"
 
 using namespace std;
