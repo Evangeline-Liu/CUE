@@ -3,7 +3,11 @@
 #include "Maps.cpp"
 #include "BFS.h"
 #include "Dijkstra.cpp"
-
+#include <chrono>
+using Clock = std::chrono::steady_clock;
+using std::chrono::nanoseconds;
+using std::chrono::time_point;
+using std::chrono::duration_cast;
 using namespace std;
 
 
@@ -13,11 +17,10 @@ int main() {
     std::pair<int, int> end(4, 9);
     int x  = BFS(GetMaps(3), start, end);
     std::cout<< x << std::endl;
-*/
-    clock_t t;
+    */
+
+
     float end_time = 0;
-    float start = 0;
-    float end = 0;
     std::cout<<"Welcome to CUE, here we help calculate your best shot for a game of golf."<<std::endl;
     std::cout<<"By Evangeline Liu and Cooper Engebretson" <<std::endl;
     std::cout<<std::endl;
@@ -85,7 +88,7 @@ int main() {
     std::cout<<"Select Algorithm, 1 for BFS and 2 for Dijkstra"<<std::endl;
     int Algorithm;
     std::cin>>Algorithm;
-    start = t*1000;
+    time_point<Clock> start = Clock::now();
     if (Algorithm == 1){
         if (MapSelection == 1){
             std::pair<int, int> start(0, 0);
@@ -134,7 +137,7 @@ int main() {
                 std::cout << "Completed in " << x << " Moves" << std::endl;
             }
         }
-        end = t*1000;
+
     }
     if (Algorithm == 2){
       graph temp = graph(GetMaps(MapSelection));
@@ -162,10 +165,12 @@ int main() {
 
       }
       }
-      end = t*1000;
-
+        
+    
     }
-    end_time = end-start;
-  cout << "Execution Time: " << end_time << endl;
-  return 0;
+    time_point<Clock> end = Clock::now();
+    nanoseconds diff = duration_cast<nanoseconds>(end - start);
+    end_time = diff.count();
+    cout << "Execution Time: " << end_time/100000 << " ms"<< endl;
+    return 0;
 }
