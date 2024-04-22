@@ -328,13 +328,9 @@ public:
 
         for(int j = 0; j < map_board.size(); j++) {
             for (int i = 0; i < map_board[0].size(); i++) {
-                if(map_board[j][i] == '>'){
-                    cout << "\>" << " ";
-                }else if(map_board[j][i] == '<'){
-                    cout << "\<" << " ";
-                }else{
+
                     cout << map_board[j][i] << " ";
-                }
+
 
             }
             cout << endl;
@@ -386,7 +382,8 @@ int main() {
         cout << it->first << ", " << it->second << endl;
     }
     temp.Print_Map();
-    */
+
     return 0;
 }
+*/
 
