@@ -231,7 +231,7 @@ int BFS(vector<string> grid, pair<int, int> start, pair<int, int> finish) {
 
     vector<vector<bool>> visited(numRows, vector<bool>(numCols, false));
     vector<vector<pair<int, int>>> parent(numRows, vector<pair<int, int>>(numCols, {-1, -1}));
-    vector<vector<int>> distance(numRows, vector<int>(numCols, 0));
+    vector<vector<float>> distance(numRows, vector<float>(numCols, 0));
     queue<pair<int, int>> q;
     q.push(start);
     visited[start.first][start.second] = true;
@@ -278,7 +278,7 @@ int BFS(vector<string> grid, pair<int, int> start, pair<int, int> finish) {
                     visited[newRow][newCol+1] = true;
                     parent[newRow][newCol+1] = curr;
                 }
-                int dist = 0;
+                float dist = 0;
                 dist +=sqrt(pow(dx[i], 2) + pow(dy[i],2));
 
                 dist += distance[curr.first][curr.second];
