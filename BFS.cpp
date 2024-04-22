@@ -263,7 +263,7 @@ int BFS(vector<string> grid, pair<int, int> start, pair<int, int> finish) {
                 }
                 cout << endl;
             }
-            std::cout <<"Distance " << distance[finish.first][finish.second] + 1<< std::endl;
+            std::cout <<"Distance: " << distance[finish.first][finish.second] + 1<< std::endl;
             return shortestPath.size() - 1;
         }
         for (int i = 0; i < 28; ++i) {
