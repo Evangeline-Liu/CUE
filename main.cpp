@@ -64,6 +64,11 @@ int main() {
       // distance travelled in outputed in the dijkstra.cpp
       list<coords> answer = temp.Shortest_Path();
       temp.Print_Map();
+      answer.pop_back();
+      if(temp.start == answer.back()){
+          cout << "There is no possible solution" << endl;
+      }else{
+      answer.push_back(temp.end);
       cout<<"Completed in " << answer.size()-1-temp.counter << " Moves"<<std::endl;
       float temper = temp.least_dist[temp.end].second;
       cout<<"Distance Travelled: " << temper << " Moves"<<std::endl;
@@ -77,6 +82,7 @@ int main() {
             cout << endl;
         }
 
+      }
       }
       float end = t*1000;
       float end_time = end-start;
