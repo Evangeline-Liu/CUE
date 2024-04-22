@@ -15,6 +15,9 @@ int main() {
     std::cout<< x << std::endl;
 */
     clock_t t;
+    float end_time = 0;
+    float start = 0;
+    float end = 0;
     std::cout<<"Welcome to CUE, here we help calculate your best shot for a game of golf."<<std::endl;
     std::cout<<"By Evangeline Liu and Cooper Engebretson" <<std::endl;
     std::cout<<std::endl;
@@ -82,7 +85,7 @@ int main() {
     std::cout<<"Select Algorithm, 1 for BFS and 2 for Dijkstra"<<std::endl;
     int Algorithm;
     std::cin>>Algorithm;
-    float start = t*1000;
+    start = t*1000;
     if (Algorithm == 1){
         if (MapSelection == 1){
             std::pair<int, int> start(0, 0);
@@ -131,11 +134,10 @@ int main() {
                 std::cout << "Completed in " << x << " Moves" << std::endl;
             }
         }
-        float end = t*1000;
-        float end_time = end-start;
+        end = t*1000;
     }
     if (Algorithm == 2){
-      graph temp = graph(MapSelection);
+      graph temp = graph(GetMaps(MapSelection));
       temp.Mapping_Out();
       // distance travelled in outputed in the dijkstra.cpp
       list<coords> answer = temp.Shortest_Path();
@@ -160,9 +162,10 @@ int main() {
 
       }
       }
-      float end = t*1000;
-      float end_time = end-start;
+      end = t*1000;
+
     }
+    end_time = end-start;
   cout << "Execution Time: " << end_time << endl;
   return 0;
 }
