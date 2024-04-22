@@ -293,8 +293,6 @@ public:
         list<coords> returne;
         returne.push_back(end);
         float temper = least_dist[end].second;
-        // print here since need to get from the end part, can move if need be
-        cout << "Distance Traveled: "<<temper << endl;
 
         coords temp_coord = least_dist[end].first;
         returne.push_back(temp_coord);
